@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -24,26 +25,29 @@ public class Category {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
     @Version
-    @Column(name = "VERSION")
+    @Column(name = "version")
     private int version;
 
     @CreatedBy
-    @Column(name = "CREATED_BY", updatable = false)
+    @Column(name = "created_by", updatable = false)
     private String createdBy;
 
     @CreatedDate
-    @Column(name = "CREATED_DATE", updatable = false)
+    @Column(name = "created_date", updatable = false)
     private LocalDateTime createdDate;
 
     @LastModifiedBy
-    @Column(name = "LAST_MODIFIED_BY")
+    @Column(name = "last_modified_by")
     private String lastModifiedBy;
 
     @LastModifiedDate
-    @Column(name = "LAST_MODIFIED_DATE")
+    @Column(name = "last_modified_date")
     private LocalDateTime lastModifiedDate;
+
+    @ManyToMany(mappedBy = "categories")
+    private List<Product> products;
 }

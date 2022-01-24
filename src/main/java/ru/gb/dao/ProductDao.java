@@ -3,6 +3,7 @@ package ru.gb.dao;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import ru.gb.entity.Category;
 import ru.gb.entity.Product;
 import ru.gb.entity.enums.Status;
 

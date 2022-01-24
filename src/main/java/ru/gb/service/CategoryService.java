@@ -20,7 +20,6 @@ public class CategoryService {
     private final CategoryDao categoryDao;
     private final CategoryMapper categoryMapper;
 
-
     @Transactional
     public CategoryDto save(final CategoryDto categoryDto) {
         Category category = categoryMapper.toCategory(categoryDto);

@@ -1,6 +1,7 @@
 package ru.gb.entity;
 
 import lombok.*;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -55,6 +57,14 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private Status status;
+
+    @ManyToMany
+    @JoinTable(
+            name = "product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private List<Category> categories;
+
 
     @Override
     public String toString() {

@@ -11,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -31,4 +32,5 @@ public class ProductDto {
     @NotNull
     private Status status;
     private String manufacturer;
+    private List<CategoryDto> categories;
 }

@@ -89,7 +89,6 @@ public class ProductService {
         return productDao.findAllByStatus(Status.ACTIVE, PageRequest.of(page, size, Sort.by("id")));
     }
 
-
     public List<ProductManufacturerDto> findAllInfo() {
         return productDao.findAll().stream().map(productMapper::toProductManufacturerDto).collect(Collectors.toList());
     }
